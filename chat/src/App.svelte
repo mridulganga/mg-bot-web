@@ -4,7 +4,7 @@
 	import { faUsers, faCompressArrowsAlt, faComments, faEnvelope } from '@fortawesome/free-solid-svg-icons';
   import marked from 'marked'
 
-  const client = mqtt.connect('ws://13.235.23.2:1888/ws',{
+  const client = mqtt.connect('wss://hmq.mridulganga.dev:1888/ws',{
     retain: true
   });
 
