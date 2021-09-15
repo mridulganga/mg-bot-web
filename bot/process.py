@@ -1,5 +1,6 @@
 import time
 from app import animals, monopoly
+import help
 
 def get_text_msg(message):
     return {
@@ -17,6 +18,11 @@ def get_img_msg(link, message):
             "timestamp": round(time.time() * 1000)
         }
 
+def help_processor(item):
+    if item in help.items:
+        return help.items[item]
+    return f"No help found for {item}"
+
 def prepare_response(user,message,reply):
     return f"<small>{user}: {message}</small><br>{reply}"
 
@@ -28,7 +34,8 @@ def process_message(user, message):
     elif parts[0] in monopoly.mono_list:
         reply_text = monopoly.mono_hander(user,parts)
     elif parts[0] == "help":
-        reply_text = "help is here"
+        help_item = parts[1] if len(parts) > 1 else ""
+        reply_text = help_processor(help_item)
     else:
         reply_text = f"sorry {user} didn't recognise {message}. <br>Try `pls help`"
     return get_text_msg(prepare_response(user,message,reply_text))

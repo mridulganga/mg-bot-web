@@ -9,6 +9,8 @@
   });
 
   let autoScroll = true
+  let nameMe='namehere';
+  let messageText = "";
 
   $: connected = client.connected
 
@@ -42,8 +44,7 @@ client.on('message', function (topic, message) {
   }
 })
 
-	let nameMe='mridul';
-  let messageText = "";
+	
 
   const onKeyPress = e => {
     if (e.charCode === 13) sendMessage();
@@ -67,67 +68,9 @@ client.on('message', function (topic, message) {
 	}
 	
 	let messages = [
-  {
-    "name": "416",
-    "message": "abc",
-    "timestamp": 1587139022488.826
-  },
-  {
-    "name": "417",
-    "message": "test",
-    "timestamp": 1587139034294.678
-  },
-  {
-    "name": "mridul",
-    "message": "a",
-    "timestamp": 1587139047495.052
-  },
-  {
-    "name": "419",
-    "message": "testset",
-		"hasImage": true,
-		"image": "https://media.istockphoto.com/photos/grey-stripped-mixedbreed-cat-sitting-isolated-on-white-picture-id1217828258?b=1&k=20&m=1217828258&s=170667a&w=0&h=jVuou3wnJ1x7eLf0iWS53BvA5ZOyROTBfiTM3tPhD4g=",
-    "timestamp": 1587139312376.663
-  },
-  {
-    "name": "420",
-    "message": "a cat gif",
-		"image":"https://media1.giphy.com/media/ICOgUNjpvO0PC/giphy.gif",
-		"hasImage": true,
-    "timestamp": 1587139349155.217
-  },
-  {
-    "name": "mridul",
-    "message": "t",
-    "timestamp": 1587577393781.811
-  },
-  {
-    "name": "427",
-    "message": "aaa",
-    "timestamp": 1587577411018.97
-  },
-  {
-    "name": "431",
-    "message": "a",
-    "timestamp": 1587652540004.281
-  },
-  {
-    "name": "mridul",
-    "message": "u",
-    "timestamp": 1587686520069.1272
-  },
-  {
-    "name": "433",
-    "message": "a",
-    "timestamp": 1587782491376.533
-  }
 ]
 
-
-
 </script>
-
-
 
 <style>
   html,body{

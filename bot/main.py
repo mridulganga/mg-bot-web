@@ -12,8 +12,8 @@ def on_connect(client, userdata, flags, rc):
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
     obj = json.loads(msg.payload.decode("utf-8"))
-    user = obj["name"]
-    text = obj["message"]
+    user = obj["name"].lower()
+    text = obj["message"].lower()
     if msg.topic == "mgsimplechat" and text[:3]=="pls":
         try:
             payload = process.process_message(user,text)
@@ -26,7 +26,7 @@ client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
 
-client.connect("localhost", 1883, 60)
+client.connect("hmq.mridulganga.dev", 1883, 60)
 
 # Blocking call that processes network traffic, dispatches callbacks and
 # handles reconnecting.
